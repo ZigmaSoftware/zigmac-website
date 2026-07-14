@@ -262,7 +262,7 @@ const ShaderGlobe = () => {
 
         badgeEl.style.opacity = visibleOpacity.toFixed(3);
         badgeEl.style.transform = `translate(${baseX}px, ${baseY}px)`;
-        badgeEl.style.zIndex = `${Math.round(100 + worldPoint.z * 100)}`;
+        badgeEl.style.zIndex = `${Math.round(10 + worldPoint.z * 10)}`;
       });
     };
 
@@ -365,7 +365,7 @@ const ShaderGlobe = () => {
   return (
     <div
       ref={wrapperRef}
-      className="relative mx-auto aspect-square w-full max-w-[560px] touch-none select-none"
+      className="relative z-0 mx-auto aspect-square w-full max-w-[560px] touch-none select-none"
       aria-label="Interactive globe. Drag to rotate and click to add a pointer."
     >
       <style>{`

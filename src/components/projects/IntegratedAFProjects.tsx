@@ -270,15 +270,6 @@ const FacilityCard: React.FC<{ facility: Facility }> = ({ facility }) => {
                   <div className="absolute right-0 top-0 h-full w-[1.5px] bg-white/25 z-20" />
                 )}
 
-                {section.bottomLabel && (
-                  <div
-                    className="absolute bottom-4 left-4 z-20 text-white font-semibold text-base tracking-wide"
-                    style={{ textShadow: "0 2px 10px rgba(0,0,0,0.85)" }}
-                  >
-                    {section.bottomLabel}
-                  </div>
-                )}
-
                 {selectedSection === section.id && (
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-300 to-emerald-300 z-30" />
                 )}
