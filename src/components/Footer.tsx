@@ -82,14 +82,14 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
                 {[
+                  { label: "Home", path: "/" },
                   { label: "About Us", path: "/about" },
-                  { label: "Capabilities", path: "/services" },
-                  { label: "Projects", path: "/projects" },
+                  { label: "Services", path: "/services" },
                   { label: "Products", path: "/products" },
-                  { label: "In the News", path: "/newsroom" },
-
+                  { label: "Projects", path: "/projects" },
+                  { label: "News Room", path: "/newsroom" },
                   { label: "Testimonials", path: "/testimonials" },
-
+                  { label: "People At Zigma", path: "/people" },
                   { label: "Careers", path: "/careers" },
                   { label: "Contact", path: "/contact" },
                   // { label: "Governance Policies", path: "/about" },
@@ -113,19 +113,20 @@ const Footer = () => {
                 <li className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 mt-1.5 flex-shrink-0" />
                   <span className="text-foreground/70 text-md">
-                  Near Brahmapuram Waste to Energy Plant, Brahmapuram, Kakkanad, Ernakulam, Keralam - 682030.
+                    178, Indu Nagar, Palayapalayam,
+                    Perundurai Road, Erode, Tamilnadu - 638 011, India.
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <a href="mailto:santhosh@zigma.in" className="text-foreground/70 hover:text-primary text-md transition-colors">
-                    santhosh@zigma.in
+                  <a href="mailto:connect@zigma.in" className="text-foreground/70 hover:text-primary text-md transition-colors">
+                    connect@zigma.in
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <a href="tel:+91 9600611657" className="text-foreground/70 hover:text-primary text-md transition-colors">
-                    +91 9600611657
+                  <a href="tel:+914242225157" className="text-foreground/70 hover:text-primary text-md transition-colors">
+                    0424 222 5157
                   </a>
                 </li>
               </ul>
@@ -137,7 +138,7 @@ const Footer = () => {
               © {new Date().getFullYear()} Zigma Global Environ Solutions Pvt Ltd. All Rights Reserved.
             </p>
             <div className="flex gap-6">
-              <Link to="/about" className="text-foreground/60 hover:text-foreground text-sm transition-colors">
+              <Link to="/policies" className="text-foreground/60 hover:text-foreground text-sm transition-colors">
                 Privacy Policy & Terms of Service
               </Link>
             </div>

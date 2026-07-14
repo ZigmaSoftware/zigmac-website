@@ -1,11 +1,8 @@
 import Reveal from "@/components/animation/Reveal";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { stockImages } from "@/config/stockImages";
 import conveyorImg from "@/assets/services/pre-processing.webp";
-import rdfImg from "@/assets/services/Residual Outputs.webp";
-import bioMiningImg from "@/assets/services/Bioconversion — The BSF Larvae at Work.webp";
-import mrfImg from "@/assets/services/harvesting.webp";
+import bioMiningImg from "@/assets/services/landfill_mining.jpg";
 
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -13,6 +10,12 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 const SLOW_EASE = "power2.out";
+const CONVEYOR_IMAGE =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZORsjxR5kSBKGExcKnBPSN_urXAW8D3QbdEtZECk7Fg&s=10";
+const RDF_IMAGE =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuT7COxD1Rg3I4SWX1w5LWQW50CEEBCZ6jIsve2yHlow&s=10";
+const MRF_IMAGE =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUWj8pT_W4y_gS-cv4pGjkO1m5yNcszxKkeVcHcxHplQ&s=10";
 
 const renderFeatureText = (feature: string): ReactNode => {
   const [head, ...rest] = feature.split(":");
@@ -29,8 +32,7 @@ const services = [
     id: "conveyor-management-system",
     title: "conveyer Management System",
     eyebrow: "Material Flow",
-    image: stockImages.services.conveyorManagement,
-    fallbackImage: conveyorImg,
+    image: CONVEYOR_IMAGE,
     description:
       "Conveyor management systems coordinate plant transfer lines, helping maintain reliable material flow between receiving, sorting and processing zones.",
     features: [
@@ -44,8 +46,7 @@ const services = [
     id: "rdf-co-processing-system",
     title: "RDF Co-processing System",
     eyebrow: "Fuel Preparation",
-    image: stockImages.services.rdfProcessing,
-    fallbackImage: rdfImg,
+    image: RDF_IMAGE,
     description:
       "RDF co-processing systems prepare recovered fractions for use in industrial fuel blending and thermal recovery applications.",
     features: [
@@ -59,8 +60,7 @@ const services = [
     id: "bio-mining-system",
     title: "Bio Mining System",
     eyebrow: "Legacy Waste Recovery",
-    image: stockImages.services.bioMining,
-    fallbackImage: bioMiningImg,
+    image: bioMiningImg,
     description:
       "Bio mining systems support recovery and reclamation of legacy waste streams through biological and mechanical processing stages.",
     features: [
@@ -74,8 +74,7 @@ const services = [
     id: "mrf-system",
     title: "MRF System",
     eyebrow: "Sorting Infrastructure",
-    image: stockImages.services.mrfSystem,
-    fallbackImage: mrfImg,
+    image: MRF_IMAGE,
     description:
       "Material recovery facility systems are designed for sorting, segregation and recovery of recyclable fractions in waste-processing plants.",
     features: [
@@ -98,7 +97,7 @@ const Services = () => {
           className="relative min-h-[100svh] box-border pt-20 flex items-center overflow-hidden scroll-mt-24 lg:scroll-mt-28"
         >
           <img
-            src={stockImages.services.hero}
+            src={conveyorImg}
             alt=""
             aria-hidden="true"
             fetchPriority="high"
@@ -150,11 +149,6 @@ const Services = () => {
                         loading="lazy"
                         decoding="async"
                         className="w-full h-80 object-cover transition-transform duration-300 hover:scale-105"
-                        onError={(event) => {
-                          if (service.fallbackImage && event.currentTarget.src !== service.fallbackImage) {
-                            event.currentTarget.src = service.fallbackImage;
-                          }
-                        }}
                       />
                     </div>
                   </div>

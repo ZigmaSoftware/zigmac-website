@@ -1,8 +1,4 @@
-import { stockImages } from "@/config/stockImages";
-import preProcessingImg from "@/assets/services/pre-processing.webp";
-import residualOutputsImg from "@/assets/services/Residual Outputs.webp";
-import bioconversionImg from "@/assets/services/Bioconversion — The BSF Larvae at Work.webp";
-import harvestingImg from "@/assets/services/harvesting.webp";
+import bioMiningImg from "@/assets/services/landfill_mining.jpg";
 import trommelImg from "@/assets/products/Trommel-1.webp";
 import obmsImg from "@/assets/products/OBMS.webp";
 import discSeparatorImg from "@/assets/products/Disc Separator.webp";
@@ -14,7 +10,6 @@ export interface DropdownItem {
   name: string;
   path: string;
   image?: string;
-  fallbackImage?: string;
   mediaType?: "image" | "video";
 }
 
@@ -36,26 +31,22 @@ export const navItems: NavItem[] = [
       {
         name: "conveyer Management System",
         path: "/services#conveyor-management-system",
-        image: stockImages.services.conveyorManagement,
-        fallbackImage: preProcessingImg,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZORsjxR5kSBKGExcKnBPSN_urXAW8D3QbdEtZECk7Fg&s=10",
       },
       {
         name: "RDF Co processing System",
         path: "/services#rdf-co-processing-system",
-        image: stockImages.services.rdfProcessing,
-        fallbackImage: residualOutputsImg,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuT7COxD1Rg3I4SWX1w5LWQW50CEEBCZ6jIsve2yHlow&s=10",
       },
       {
         name: "Bio Mining System",
         path: "/services#bio-mining-system",
-        image: stockImages.services.bioMining,
-        fallbackImage: bioconversionImg,
+        image: bioMiningImg,
       },
       {
         name: "MRF System",
         path: "/services#mrf-system",
-        image: stockImages.services.mrfSystem,
-        fallbackImage: harvestingImg,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUWj8pT_W4y_gS-cv4pGjkO1m5yNcszxKkeVcHcxHplQ&s=10",
       },
     ],
   },

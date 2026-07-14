@@ -251,13 +251,13 @@ const About = (): JSX.Element => {
               data-anim-ease={SLOW_EASE}
             >
               <div className="text-lg font-medium uppercase tracking-[0.35em] text-white/85">
-                Our Capability
+                Our Journey
               </div>
               <h1 className="mt-3 text-5xl font-bold leading-tight text-white md:text-5xl">
-               Engineering Strength for Waste-Management Infrastructure
+               Milestones That Shaped Us
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-relaxed text-white/90">
-                Zigma brings process planning, partner manufacturing, heavy fabrication, precision machining and inspection discipline together for reliable plant equipment.
+                Explore the defining moments that transformed our vision into a global footprint. Each year marks a new chapter in growth, innovation, and impact.
               </p>
             </Reveal>
           </div>
@@ -296,16 +296,16 @@ const About = (): JSX.Element => {
                 Zigma Global Environ <span className="text-primary">Solutions</span>
               </h2>
               <p className="mt-4 text-justify text-base leading-relaxed text-slate-600 lg:text-lg">
-                Zigma's machinery capability has been built to support the physical backbone of waste-management infrastructure: trommels, CSM systems, rings, screens, frames, forged pinions, fixtures and large mechanical assemblies used in municipal solid waste plants.
+                In 2015, while exploring various waste streams, our founders discovered a stark reality: India had no solution for its growing legacy waste crisis. Open dump yards across the country were overflowing with decades of mismanaged municipal solid waste, and the nation was grappling with the absence of a clear, scientific pathway to address it.
               </p>
               <p className="mt-4 text-justify text-base leading-relaxed text-slate-600 lg:text-lg">
-                The company works through a structured manufacturing route, starting from RFQ, SOR and CAD review, moving through feasibility, vendor confirmation, manufacturing drawings, process control plans, inspection checkpoints and final release-readiness reviews.
+                This realization became the turning point. A group of serial entrepreneurs from South India - experienced in steel manufacturing, TMT bars, billets, UPVC profiles, hospitality, and IT infrastructure - saw in this challenge an opportunity to do something truly transformative, not just for communities but for the country at large.
               </p>
               <p className="mt-4 text-justify text-base leading-relaxed text-slate-600 lg:text-lg">
-                Its approved manufacturing ecosystem covers heavy fabrication, large-format machining, casting, forging, gear hobbing, laser and plasma cutting, water-jet cutting, heat treatment, hardening, NDT, CMM inspection, 3D scanning and spectrometer checks.
+                Determined to find answers, they traveled across Germany, South Africa, Thailand, China, and South Korea, studying how these nations tackled municipal solid waste. Out of this exploration emerged Zigma: a company dedicated to pioneering solutions for legacy waste management.
               </p>
               <p className="mt-4 text-justify text-base leading-relaxed text-slate-600 lg:text-lg">
-                At the heart of the operation is a practical engineering objective: deliver durable, inspection-ready machinery and components that perform reliably in demanding waste-processing environments.
+                At the heart of our operations lies a low-carbon emission model that scientifically segregates and remediates decades of accumulated waste. What began as a quest to solve India's most pressing environmental challenge has evolved into a mission with global resonance - turning neglected dump yards into opportunities for renewal, sustainability, and impact.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <a
@@ -334,7 +334,7 @@ const About = (): JSX.Element => {
                 label="Meet Our Management Team"
                 title={
                   <>
-                    Leadership Driving Engineering <span className="text-primary">Excellence</span>
+                    Leadership Driving Sustainable <span className="text-primary">Excellence</span>
                   </>
                 }
               />

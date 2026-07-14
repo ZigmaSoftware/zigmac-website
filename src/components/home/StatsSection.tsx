@@ -444,7 +444,7 @@ const ChainGraphic = ({
         aria-labelledby={titleId}
         className="mx-auto block w-full max-w-[760px] overflow-visible"
       >
-        <title id={titleId}>Animated diamond chain with ecological metrics</title>
+        {/* <title id={titleId}>Z</title> */}
         <defs>
           <path id={shapeId} d={CHAIN_PATH} />
           <filter id={chainGlowFilterId} x="-10%" y="-18%" width="120%" height="136%">
@@ -507,7 +507,7 @@ const ChainGraphic = ({
 const StatsSection = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
 
@@ -545,29 +545,7 @@ const StatsSection = () => {
     return () => observer.disconnect();
   }, [prefersReducedMotion]);
 
-  useEffect(() => {
-    const element = sectionRef.current;
-    if (!element || videoLoaded) return;
-
-    if (typeof IntersectionObserver === "undefined") {
-      setVideoLoaded(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setVideoLoaded(true);
-        observer.disconnect();
-      },
-      { rootMargin: "120px 0px", threshold: 0.2 },
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [videoLoaded]);
-
-  const videoSrc = "https://www.youtube.com/embed/owZyeZR7-2k?autoplay=1&mute=1&loop=1&playlist=owZyeZR7-2k&rel=0&modestbranding=1&playsinline=1";
+  const videoSrc = "/videos/Machinery%20video.webm";
 
   return (
     <section ref={sectionRef} className="relative isolate overflow-hidden bg-background">
@@ -606,28 +584,28 @@ const StatsSection = () => {
 
       <div className="group relative mx-auto w-full overflow-hidden border border-border shadow-xl">
         <div className="relative w-full pt-[56.25%]">
-          {videoLoaded ? (
-            <iframe
+          {videoPlaying ? (
+            <video
               src={videoSrc}
-              title="Zigmac Stats Section Video"
+              title="Zigmac "
               className="absolute inset-0 h-full w-full"
-              frameBorder={0}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
+              controls
+              autoPlay
+              playsInline
             />
           ) : (
             <button
               className="absolute inset-0 h-full w-full bg-black flex items-center justify-center group/play"
-              onClick={() => setVideoLoaded(true)}
+              onClick={() => setVideoPlaying(true)}
               aria-label="Play video"
             >
-              <img
-                src="https://img.youtube.com/vi/owZyeZR7-2k/maxresdefault.jpg"
-                alt="Video thumbnail"
+              <video
+                src={videoSrc}
                 className="absolute inset-0 h-full w-full object-cover opacity-70"
-                loading="lazy"
+                muted
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
               />
               <span className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 group-hover/play:bg-white/30 transition">
                 <svg className="h-7 w-7 text-white fill-white" viewBox="0 0 24 24">

@@ -182,12 +182,6 @@ const Header = () => {
                                   alt={sub.name}
                                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                   loading="lazy"
-                                  onError={(event) => {
-                                    const fallback = sub.fallbackImage;
-                                    if (fallback && event.currentTarget.src !== fallback) {
-                                      event.currentTarget.src = fallback;
-                                    }
-                                  }}
                                 />
                               ) : (
                                 <div className="w-full h-full bg-secondary" />

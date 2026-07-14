@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Quote } from "lucide-react";
 
-import globeImg from "@/assets/website/eco_globe_no_background.webp";
+import ShaderGlobe from "@/components/home/ShaderGlobe";
 
 const introText =
   "We partner with Urban Local Bodies and waste generators to address one of urban India's most persistent challenges - organic wet waste. Through scientifically managed Black Soldier Fly processing, we divert waste from landfills and convert it into larvae, organic manure, and frass, creating measurable environmental value at every stage of the process.";
@@ -67,7 +67,7 @@ const Vision = () => {
 
           <p
             ref={quoteRef}
-            className="mx-auto mt-4 max-w-3xl text-center text-lg leading-relaxed relative z-10"
+            className="relative z-10 mx-auto mt-4 max-w-3xl text-center text-lg leading-relaxed"
             aria-label={quoteText}
           >
             <span className="mr-2 inline-flex align-middle text-primary/80">
@@ -114,13 +114,7 @@ const Vision = () => {
           </div>
 
           <div className="flex h-full items-center justify-center">
-            <img
-              src={globeImg}
-              alt="Global circular ecosystem transformation"
-              className="h-auto w-full max-w-sm object-contain md:max-w-lg lg:max-w-[500px]"
-              loading="lazy"
-              decoding="async"
-            />
+            <ShaderGlobe />
           </div>
         </div>
       </div>

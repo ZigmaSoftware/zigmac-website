@@ -74,7 +74,7 @@ const PartnersSection = () => {
         </p>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="container-main flex flex-col gap-4">
         <MarqueeRow items={row1} />
         <MarqueeRow items={row2} reverse />
       </div>
