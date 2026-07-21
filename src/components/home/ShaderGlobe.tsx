@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Check, Factory, PackageCheck, Settings, ShoppingCart, Truck } from "lucide-react";
 import * as THREE from "three";
 
 import { isLandPoint } from "@/components/home/landMaskLookup";
@@ -56,55 +55,6 @@ const MAP_FRAGMENT_SHADER = `
 `;
 
 const ROTATION_SPEED_PER_FRAME = 0.0052;
-const MAX_VISIBLE_BADGES = 3;
-
-const FLOATING_BADGES = [
-  {
-    id: "machinery-sales",
-    lat: 22,
-    lng: 78,
-    Icon: ShoppingCart,
-    title: "Machinery sales",
-    subtitle: "MSW plant equipment",
-    accent: "#111827",
-  },
-  {
-    id: "equipment-rentals",
-    lat: 39,
-    lng: -96,
-    Icon: Truck,
-    title: "Equipment rentals",
-    subtitle: "Deployment-ready machines",
-    accent: "#16a34a",
-  },
-  {
-    id: "plant-installation",
-    lat: 25,
-    lng: 45,
-    Icon: Settings,
-    title: "Plant installation",
-    subtitle: "Setup and commissioning",
-    accent: "#2563eb",
-  },
-  {
-    id: "fabrication",
-    lat: -25,
-    lng: 134,
-    Icon: Factory,
-    title: "Fabrication",
-    subtitle: "Heavy-duty assemblies",
-    accent: "#f59e0b",
-  },
-  {
-    id: "spares-support",
-    lat: 4,
-    lng: 21,
-    Icon: PackageCheck,
-    title: "Spares support",
-    subtitle: "Parts, service and uptime",
-    accent: "#64748b",
-  },
-] as const;
 
 const buildMapCanvas = () => {
   const canvas = document.createElement("canvas");
@@ -134,21 +84,10 @@ const buildMapCanvas = () => {
   return canvas;
 };
 
-const latLngToVector = (latDeg: number, lngDeg: number) => {
-  const lat = (latDeg * Math.PI) / 180;
-  const lng = (lngDeg * Math.PI) / 180;
-
-  return new THREE.Vector3(
-    Math.cos(lat) * Math.sin(lng),
-    Math.sin(lat),
-    Math.cos(lat) * Math.cos(lng),
-  );
-};
 
 const ShaderGlobe = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvas3dRef = useRef<HTMLCanvasElement>(null);
-  const badgeRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -223,49 +162,6 @@ const ShaderGlobe = () => {
       mouse.y = -((clientY - rect.top) / rect.height) * 2 + 1;
     };
 
-    const updateBadges = () => {
-      const size = wrapper.clientWidth;
-      group.updateMatrixWorld(true);
-
-      const badgeStates = FLOATING_BADGES.map((badge) => {
-        const badgeEl = badgeRefs.current[badge.id];
-        if (!badgeEl) return null;
-
-        const worldPoint = latLngToVector(badge.lat, badge.lng).applyMatrix4(group.matrixWorld);
-        const projected = worldPoint.clone().project(camera);
-        const opacity = Math.max(0, Math.min(1, (worldPoint.z + 0.16) / 0.36));
-        const x = (projected.x + 1) * size * 0.5;
-        const y = (1 - projected.y) * size * 0.5;
-        // Reference behavior: the label offset is constant (icon on the
-        // left, label extending right) regardless of where the badge sits
-        // on the globe. It is never flipped to the other side — at the
-        // edges the label is simply allowed to run off-canvas.
-        const offsetX = -12;
-        const offsetY = -20;
-
-        return { badge, badgeEl, opacity, worldPoint, x, y, offsetX, offsetY };
-      }).filter((state): state is NonNullable<typeof state> => Boolean(state));
-
-      const visibleBadgeIds = new Set(
-        badgeStates
-          .filter((state) => state.opacity > 0.16)
-          .sort((a, b) => b.opacity - a.opacity)
-          .slice(0, MAX_VISIBLE_BADGES)
-          .map((state) => state.badge.id),
-      );
-
-      badgeStates.forEach(({ badge, badgeEl, opacity, worldPoint, x, y, offsetX, offsetY }) => {
-        const visible = visibleBadgeIds.has(badge.id);
-        const visibleOpacity = visible ? opacity : 0;
-        const baseX = x + offsetX;
-        const baseY = y + offsetY;
-
-        badgeEl.style.opacity = visibleOpacity.toFixed(3);
-        badgeEl.style.transform = `translate(${baseX}px, ${baseY}px)`;
-        badgeEl.style.zIndex = `${Math.round(10 + worldPoint.z * 10)}`;
-      });
-    };
-
     const handlePointerDown = (event: PointerEvent) => {
       dragging = true;
       dragMoved = false;
@@ -326,7 +222,6 @@ const ShaderGlobe = () => {
         group.rotation.y += ROTATION_SPEED_PER_FRAME * frameScale;
       }
       mapMaterial.uniforms.u_time_since_click.value = clock.running ? clock.getElapsedTime() : 100;
-      updateBadges();
 
       renderer.render(scene, camera);
       frameId = window.requestAnimationFrame(render);
@@ -368,42 +263,7 @@ const ShaderGlobe = () => {
       className="relative z-0 mx-auto aspect-square w-full max-w-[560px] touch-none select-none"
       aria-label="Interactive globe. Drag to rotate and click to add a pointer."
     >
-      <style>{`
-        .globe-badge-fade {
-          transition: opacity 260ms linear;
-        }
-      `}</style>
       <canvas ref={canvas3dRef} className="absolute inset-0 block h-full w-full" />
-      <div className="pointer-events-none absolute inset-0">
-        {FLOATING_BADGES.map((badge) => (
-          <div
-            key={badge.id}
-            ref={(node) => {
-              badgeRefs.current[badge.id] = node;
-            }}
-            className="pointer-events-none absolute left-0 top-0 flex min-w-[220px] items-center opacity-0 globe-badge-fade"
-            aria-hidden="true"
-          >
-            <div className="flex items-center">
-              <div
-                className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-base font-bold text-white shadow-[0_12px_26px_rgba(15,23,42,0.16)] ring-[3px] ring-white/80"
-                style={{ backgroundColor: badge.accent }}
-              >
-                <badge.Icon className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
-              </div>
-              <div className="-ml-5 flex min-h-[62px] flex-1 items-center justify-between gap-3 rounded-xl bg-white/95 py-3 pl-8 pr-3 shadow-[0_14px_30px_rgba(15,23,42,0.14)] ring-1 ring-slate-900/5 backdrop-blur-md">
-                <div>
-                  <p className="text-sm font-bold leading-tight text-slate-950">{badge.title}</p>
-                  <p className="mt-1 text-xs leading-tight text-slate-600">{badge.subtitle}</p>
-                </div>
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-200 text-xs font-bold text-white">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden="true" />
-                </span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
