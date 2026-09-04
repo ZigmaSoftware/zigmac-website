@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, ChevronUp, Facebook, Linkedin, Instagram, Youtube } from "lucide-react";
-import zigmaBpLogo from "@/assets/icons/zigmac -bp.png";
+import zigmaBpLogo from "@/assets/icons/Zigmac-Bp-logo.png";
 
 const Footer = () => {
   const scrollToTop = () => {

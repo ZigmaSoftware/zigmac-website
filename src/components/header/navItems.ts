@@ -76,7 +76,7 @@ export const navItems: NavItem[] = [
   //   ],
   // },
   {
-    name: "People At Zigma",
+    name: "People At Zigmac",
     path: "/people",
   },
   { name: "Careers", path: "/careers" },

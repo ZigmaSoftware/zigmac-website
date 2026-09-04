@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/icons/zigmac -bp.png";
+import logo from "@/assets/icons/Zigmac-Bp-logo.png";
 import { useHeaderBehavior } from "@/components/header/useHeaderBehavior";
 
 const Header = () => {
