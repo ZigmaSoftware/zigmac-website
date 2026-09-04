@@ -17,6 +17,8 @@ const Services = lazy(() => import("./pages/Services"));
 const Contact = lazy(() => import("./pages/Contact"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Products = lazy(() => import("./pages/Products"));
+const ProductCategory = lazy(() => import("./pages/ProductCategory"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const Careers = lazy(() => import("./pages/Careers"));
 const CareersApply = lazy(() => import("./pages/CareersApply"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -83,6 +85,12 @@ const App = () => (
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/:id" element={<ProjectDetail />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/afr-preprocessing-solutions" element={<ProductCategory />} />
+                <Route path="/afr-preprocessing-solutions/:productSlug" element={<ProductDetail />} />
+                <Route path="/msw-processing-solutions" element={<ProductCategory />} />
+                <Route path="/msw-processing-solutions/:productSlug" element={<ProductDetail />} />
+                <Route path="/merf-dry-waste-management-solutions" element={<ProductCategory />} />
+                <Route path="/merf-dry-waste-management-solutions/:productSlug" element={<ProductDetail />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/careers/apply" element={<CareersApply />} />
                 <Route path="/media" element={<Navigate to="/newsroom" replace />} />

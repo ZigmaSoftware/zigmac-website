@@ -1,10 +1,7 @@
 import bioMiningImg from "@/assets/services/landfill_mining.jpg";
 import trommelImg from "@/assets/products/Trommel-1.webp";
-import obmsImg from "@/assets/products/OBMS.webp";
-import discSeparatorImg from "@/assets/products/Disc Separator.webp";
-import adsImg from "@/assets/products/ADS.webp";
-import conveyorImg from "@/assets/products/belt-conveyor.webp";
-import cycleImg from "@/assets/products/cy2.webp";
+import preProcessingImg from "@/assets/services/pre-processing.webp";
+import residualOutputsImg from "@/assets/services/Residual Outputs.webp";
 
 export interface DropdownItem {
   name: string;
@@ -55,17 +52,22 @@ export const navItems: NavItem[] = [
     path: "/products",
     megaMenu: true,
     dropdown: [
-      { name: "Trommels", path: "/products#trommels", image: trommelImg },
-      { name: "Conveyors", path: "/products#conveyors", image: conveyorImg },
-      { name: "Disc Screen Separator", path: "/products#disc-screen-separator", image: discSeparatorImg },
-      { name: "Air Density Separator", path: "/products#air-density-separator", image: adsImg },
-      { name: "Over Band Magnetic Separator", path: "/products#over-band-magnetic-separator", image: obmsImg },
-      { name: "Cyclone Collector", path: "/products#cyclone-collector", image: cycleImg },
+      { name: "Individual Machineries", path: "/products", image: trommelImg },
+      { name: "AFR Preprocessing Solutions", path: "/afr-preprocessing-solutions", image: preProcessingImg },
+      { name: "MSW Processing Solutions", path: "/msw-processing-solutions", image: bioMiningImg },
+      {
+        name: "MERF - Dry Waste Management Solutions",
+        path: "/merf-dry-waste-management-solutions",
+        image: residualOutputsImg,
+      },
     ],
   },
   {
     name: "Projects",
     path: "/projects",
+    dropdown: [
+      { name: "Integrated Alternative Fuel", path: "/projects" },
+    ],
   },
   // {
   //   name: "News Room",

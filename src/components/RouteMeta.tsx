@@ -74,6 +74,21 @@ const ROUTE_META: Record<string, RouteMetaEntry> = {
     description:
       "Discover Zigmac equipment categories including trommel systems, CSM assemblies, gear and ring parts, jigs and fixtures.",
   },
+  "/afr-preprocessing-solutions": {
+    title: "AFR Preprocessing Solutions",
+    description:
+      "Explore Zigmac's AFR preprocessing solutions engineered to prepare alternative fuel and raw material streams for co-processing.",
+  },
+  "/msw-processing-solutions": {
+    title: "MSW Processing Solutions",
+    description:
+      "Explore Zigmac's MSW processing solutions for receiving, screening and sorting municipal solid waste streams.",
+  },
+  "/merf-dry-waste-management-solutions": {
+    title: "MERF - Dry Waste Management Solutions",
+    description:
+      "Explore Zigmac's MERF dry waste management solutions for sorting, recovering and processing recyclable material.",
+  },
   "/projects": {
     title: "Projects",
     description:

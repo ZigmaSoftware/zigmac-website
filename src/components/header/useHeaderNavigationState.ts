@@ -81,9 +81,9 @@ export const useHeaderNavigationState = () => {
     (item) => item.name === activeDropdown && item.megaMenu && item.dropdown
   );
 
-  const megaMenuCols = activeMegaMenuItem?.name === "Products" ? 3 : activeMegaMenuItem?.dropdown?.length ?? 1;
+  const megaMenuCols = activeMegaMenuItem?.name === "Products" ? 4 : activeMegaMenuItem?.dropdown?.length ?? 1;
   const megaMenuWidth = activeMegaMenuItem?.name === "Products"
-    ? "min(84vw, 840px)"
+    ? "min(90vw, 1080px)"
     : megaMenuCols === 1
       ? "min(35vw, 340px)"
       : `min(${megaMenuCols * 26}vw, ${megaMenuCols * 270}px)`;
