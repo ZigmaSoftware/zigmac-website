@@ -64,11 +64,6 @@ const ROUTE_META: Record<string, RouteMetaEntry> = {
     description:
       "Meet the leadership and team behind Zigmac's engineering and waste-management infrastructure initiatives.",
   },
-  "/policies": {
-    title: "Policies",
-    description:
-      "Review governance, privacy, whistleblower, and compliance policies for Zigmac.",
-  },
   "/products": {
     title: "Equipment",
     description:

@@ -24,7 +24,6 @@ const CareersApply = lazy(() => import("./pages/CareersApply"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const People = lazy(() => import("./pages/People"));
 const Projects = lazy(() => import("./pages/Projects"));
-const Policies = lazy(() => import("./pages/Policies"));
 // const AwardsandRecognition = lazy(() => import("./pages/AwardsandRecognition"));
 // const Publications = lazy(() => import("./pages/Publications"));
 // const Newsletters = lazy(() => import("./pages/Newsletters"));
@@ -96,7 +95,6 @@ const App = () => (
                 <Route path="/media" element={<Navigate to="/newsroom" replace />} />
                 <Route path="/mediacp" element={<Navigate to="/newsroom" replace />} />
                 <Route path="/people" element={<People />} />
-                <Route path="/policies" element={<Policies />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/newsroom" element={<Newsroom />} />
                 <Route path="/ongoingprojects" element={<Navigate to="/projects?tab=ongoing" replace />} />

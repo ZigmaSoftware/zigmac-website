@@ -21,13 +21,13 @@ const ScrollToTop = () => {
       const targetId = decodeURIComponent(hash.slice(1));
       let attempts = 0;
 
-      const scrollToHashTarget = () => {
+      const scrollToHashTarget = (immediate = false) => {
         const target = document.getElementById(targetId);
 
         if (!target) {
           if (attempts < 12) {
             attempts += 1;
-            window.setTimeout(scrollToHashTarget, 120);
+            window.setTimeout(() => scrollToHashTarget(immediate), 120);
           }
           return;
         }
@@ -39,16 +39,26 @@ const ScrollToTop = () => {
 
         if (window.__lenis) {
           window.__lenis.scrollTo(top, {
-            duration: 1.1,
+            duration: immediate ? 0 : 1.1,
+            immediate,
           });
           return;
         }
 
-        window.scrollTo({ top, left: 0, behavior: "smooth" });
+        window.scrollTo({ top, left: 0, behavior: immediate ? "auto" : "smooth" });
       };
 
-      scrollToHashTarget();
-      return;
+      // Jump instantly on the first pass so the visitor never sees the page
+      // start at the top with its entrance animations playing before landing
+      // on the target — a visible smooth-scroll-through would flash that.
+      scrollToHashTarget(true);
+
+      // Reveal/GSAP entrance animations above the target can still be settling
+      // (their elements start translated before ScrollTrigger fires them), which
+      // shifts page layout after the first jump. Re-measure and correct once
+      // things have had time to settle so the final position is accurate.
+      const settleTimer = window.setTimeout(() => scrollToHashTarget(true), 700);
+      return () => window.clearTimeout(settleTimer);
     }
 
     if (window.__lenis) {

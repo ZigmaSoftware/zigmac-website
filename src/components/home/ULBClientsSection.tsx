@@ -32,8 +32,8 @@ export default function ULBClientsSection() {
           Trusted by <span className="text-primary">Urban Local Bodies</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-base">
-          Partnering with Urban Local Bodies across India to deliver transformative civic
-          solutions.
+          Partnering with Urban Local Bodies across India, supplying the machinery and turnkey
+          solutions that keep their waste processing plants running reliably.
         </p>
       </div>
 

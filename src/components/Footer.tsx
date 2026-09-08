@@ -138,7 +138,7 @@ const Footer = () => {
               © {new Date().getFullYear()} Zigma Global Environ Solutions Pvt Ltd. All Rights Reserved.
             </p>
             <div className="flex gap-6">
-              <Link to="/policies" className="text-foreground/60 hover:text-foreground text-sm transition-colors">
+              <Link to="/about#policies" className="text-foreground/60 hover:text-foreground text-sm transition-colors">
                 Privacy Policy & Terms of Service
               </Link>
             </div>

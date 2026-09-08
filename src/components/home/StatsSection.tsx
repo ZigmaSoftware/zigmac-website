@@ -1,19 +1,15 @@
 import { useEffect, useId, useRef, useState, useCallback } from "react";
 import type { CSSProperties } from "react";
-import {
-  Beaker,
-  Clock,
-  Factory,
-  Sprout,
-  Trash2,
-  Users2,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import bgstat from "../../assets/website/background-1.png";
+import iconInstallations from "../../assets/icons/1.png";
+import iconFacility from "../../assets/icons/2.png";
+import iconCapacity from "../../assets/icons/3.png";
+import iconEngineers from "../../assets/icons/4.png";
+import iconClients from "../../assets/icons/5.png";
 
 interface ImpactMetric {
   id: string;
-  icon: LucideIcon;
+  icon: string;
   x: number;
   y: number;
   dx?: number;
@@ -26,25 +22,27 @@ interface ImpactMetric {
   countPrefix?: string;
   countSuffix?: string;
   countDecimals?: number;
+  /** When set, shown as-is instead of the animated count-up (e.g. a placeholder value). */
+  staticLabel?: string;
 }
 
 const CHAIN_PATH =
-  "M 63,158 L 9,104 Q -3,92 9,80 L 71,18 Q 83,6 95,18 L 157,80 Q 169,92 157,104 L 95,166 Q 83,178 95,190 L 157,252 Q 169,264 181,252 L 243,190 Q 255,178 243,166 L 181,104 Q 169,92 181,80 L 243,18 Q 255,6 267,18 L 329,80 Q 341,92 329,104 L 267,166 Q 255,178 267,190 L 329,252 Q 341,264 353,252 L 415,190 Q 427,178 415,166 L 353,104 Q 341,92 353,80 L 415,18 Q 427,6 439,18 L 501,80 Q 513,92 501,104 L 439,166 Q 427,178 439,190 L 501,252 Q 513,264 525,252 L 587,190 Q 599,178 587,166 L 525,104";
+  "M 63,158 L 9,104 Q -3,92 9,80 L 71,18 Q 83,6 95,18 L 157,80 Q 169,92 157,104 L 95,166 Q 83,178 95,190 L 157,252 Q 169,264 181,252 L 243,190 Q 255,178 243,166 L 181,104 Q 169,92 181,80 L 243,18 Q 255,6 267,18 L 329,80 Q 341,92 329,104 L 267,166 Q 255,178 267,190 L 329,252 Q 341,264 353,252 L 415,190 Q 427,178 415,166 L 353,104 Q 341,92 353,80 L 415,18 Q 427,6 439,18 L 501,80 Q 513,92 501,104 L 439,166";
 
 const VIEWBOX = {
-  minX: 40,
-  minY: 5,
-  width: 540,
+  minX: -20,
+  minY: 6,
+  width: 560,
   height: 280,
 } as const;
 const SVG_VIEWBOX = `${VIEWBOX.minX} ${VIEWBOX.minY} ${VIEWBOX.width} ${VIEWBOX.height}`;
 const CHAIN_ANIMATION_MS = 60000;
 const CHAIN_EASING = "cubic-bezier(0.22, 1, 0.36, 1)";
-const ICON_SIZE = 30;
-const ICON_GAP = 13;
+const ICON_SIZE = 44;
+const ICON_GAP = 8;
 const TITLE_LINE_HEIGHT = 13;
-const DIVIDER_GAP_TOP = 12;
-const DIVIDER_GAP_BOTTOM = 11;
+const DIVIDER_GAP_TOP = 6;
+const DIVIDER_GAP_BOTTOM = 12;
 const DESC_LINE_HEIGHT = 11;
 const DIVIDER_WIDTH = 66;
 const TITLE_FONT_SIZE = 11.5;
@@ -53,82 +51,70 @@ const DESC_FONT_WEIGHT = 500;
 const metrics: ImpactMetric[] = [
   {
     id: "heavy-fabrication",
-    icon: Factory,
+    icon: iconInstallations,
     x: 83,
     y: 90,
     dx: 2,
     revealStart: 0.005,
     revealEnd: 0.04,
-    titleLines: ["Tons"],
-    descLines: ["Heavy fabrication", "per part"],
-    countTarget: 8,
-    countSuffix: "+ Tons",
+    titleLines: [""],
+    descLines: ["Machinery installations", "across the country"],
+    countTarget: 35,
+    countSuffix: "+",
   },
   {
     id: "casting-forging",
-    icon: Trash2,
+    icon: iconFacility,
     x: 173,
     y: 170,
     dx: -2,
     revealStart: 0.02,
     revealEnd: 0.05,
-    titleLines: ["mm"],
-    descLines: ["Casting and forging", "diameter capability"],
-    countTarget: 3500,
-    countSuffix: "+ mm",
+    titleLines: [""],
+    descLines: ["State of the art", "manufacturing facility"],
+    countTarget: 0,
+    staticLabel: "00,000",
+    countSuffix: " Sq.Ft",
   },
   {
     id: "gear-cutting",
-    icon: Beaker,
+    icon: iconCapacity,
     x: 258,
     y: 82,
     dy: 2,
     revealStart: 0.04,
     revealEnd: 0.07,
-    titleLines: ["m"],
-    descLines: ["Gear hobbing", "diameter"],
-    countTarget: 5,
-    countSuffix: " m",
+    titleLines: [""],
+    descLines: ["Machinery processing", "capacity delivered"],
+    countTarget: 30000,
+    countSuffix: " Tons/day ",
   },
   {
     id: "waterjet-cutting",
-    icon: Sprout,
+    icon: iconEngineers,
     x: 343,
     y: 164,
     dx: 1,
     dy: 2,
     revealStart: 0.06,
     revealEnd: 0.09,
-    titleLines: ["mm"],
-    descLines: ["Water jet cutting", "thickness"],
-    countTarget: 250,
-    countSuffix: "+ mm",
+    titleLines: [""],
+    descLines: ["Engineers on-board"],
+    countTarget: 20,
+    countSuffix: "+",
   },
   {
     id: "crane-capacity",
-    icon: Users2,
+    icon: iconClients,
     x: 430,
     y: 89,
     dx: -1,
     revealStart: 0.09,
     revealEnd: 0.12,
-    titleLines: ["Tons"],
-    descLines: ["Material handling", "crane capacity"],
-    countTarget: 25,
-    countSuffix: "+ Tons",
-  },
-  {
-    id: "tooling-capacity",
-    icon: Clock,
-    x: 516,
-    y: 170,
-    dx: 1,
-    revealStart: 0.11,
-    revealEnd: 0.14,
-    titleLines: ["Tools"],
-    descLines: ["Simultaneous tool", "manufacturing"],
-    countTarget: 10,
-    countSuffix: "+ Tools",
+    titleLines: [""],
+    descLines: ["Across the country"],
+    countTarget: 100,
+    countSuffix: "+ Clients",
   },
 ];
 
@@ -256,7 +242,6 @@ const MobileMetricCard = ({
   metric: ImpactMetric;
   prefersReducedMotion: boolean;
 }) => {
-  const Icon = metric.icon;
   const [started, setStarted] = useState(prefersReducedMotion);
   const ref = useRef<HTMLElement>(null);
 
@@ -281,10 +266,10 @@ const MobileMetricCard = ({
     metric.countDecimals ?? 0,
     0,
     started,
-    prefersReducedMotion,
+    prefersReducedMotion || Boolean(metric.staticLabel),
   );
   const suffix = metric.countSuffix ?? "";
-  const titleFirst = `${count}${suffix}`;
+  const titleFirst = `${metric.staticLabel ?? count}${suffix}`;
   const restLines = metric.titleLines.slice(1);
 
   return (
@@ -293,7 +278,14 @@ const MobileMetricCard = ({
       key={metric.id}
       className="rounded-2xl border border-border/70 bg-background/90 p-5 shadow-sm backdrop-blur-sm"
     >
-      <Icon width={24} height={24} strokeWidth={1.75} className="text-foreground/70" aria-hidden="true" />
+      <img
+        src={metric.icon}
+        width={42}
+        height={42}
+        alt=""
+        aria-hidden="true"
+        style={{ filter: "invert(35%)" }}
+      />
       <h3 className="mt-4 text-lg font-bold leading-tight text-foreground">
         {titleFirst}{restLines.length > 0 ? " " + restLines.join(" ") : ""}
       </h3>
@@ -329,7 +321,6 @@ const MetricNode = ({
   metricAnimationPrefix: string;
   metricShadowFilterId: string;
 }) => {
-  const Icon = metric.icon;
   const metricX = metric.x + (metric.dx ?? 0);
   const metricY = metric.y + (metric.dy ?? 0);
   const titleHeight = (metric.titleLines.length - 1) * TITLE_LINE_HEIGHT;
@@ -348,8 +339,9 @@ const MetricNode = ({
     metric.countDecimals ?? 0,
     delayMs,
     hasAnimated,
-    prefersReducedMotion,
+    prefersReducedMotion || Boolean(metric.staticLabel),
   );
+  const displayValue = metric.staticLabel ?? count;
 
   return (
     <g transform={`translate(${metricX}, ${metricY})`}>
@@ -364,13 +356,14 @@ const MetricNode = ({
           filter: `url(#${metricShadowFilterId})`,
         }}
       >
-        <Icon
+        <image
+          href={metric.icon}
           x={-ICON_SIZE / 2}
           y={iconY - ICON_SIZE / 2}
           width={ICON_SIZE}
           height={ICON_SIZE}
-          strokeWidth={1.35}
-          className="text-foreground/70"
+          style={{ filter: "invert(35%)" }}
+          preserveAspectRatio="xMidYMid meet"
         />
         {renderMultilineText(
           metric.titleLines,
@@ -378,7 +371,7 @@ const MetricNode = ({
           TITLE_LINE_HEIGHT,
           "fill-slate-800 font-bold dark:fill-foreground",
           { fontSize: TITLE_FONT_SIZE },
-          { index: 0, value: count, suffix: metric.countSuffix ?? "" },
+          { index: 0, value: String(displayValue), suffix: metric.countSuffix ?? "" },
         )}
         <line
           x1={-DIVIDER_WIDTH / 2}
@@ -442,7 +435,7 @@ const ChainGraphic = ({
         preserveAspectRatio="xMidYMid meet"
         role="img"
         aria-labelledby={titleId}
-        className="mx-auto block w-full max-w-[760px] overflow-visible"
+        className="mx-auto block w-full max-w-[960px] overflow-visible"
       >
         {/* <title id={titleId}>Z</title> */}
         <defs>

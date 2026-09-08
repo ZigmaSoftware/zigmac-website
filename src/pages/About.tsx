@@ -412,7 +412,7 @@ const About = (): JSX.Element => {
           <div className="flex flex-col gap-3 mb-10 ">
 
 
-            <div className="text-center">
+            <div id="policies" className="text-center">
 
               <p className="text-xs md:text-sm uppercase tracking-[0.35em]  text-muted-foreground">
                 Governance Policy Library

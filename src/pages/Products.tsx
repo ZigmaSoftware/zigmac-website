@@ -45,7 +45,7 @@ const products: Product[] = [
     subtitle: "Rotary screening systems for solid waste separation",
     tagline: "Screening Equipment",
     description:
-      "Trommels are built for robust separation duty in MSW processing plants, with fabricated rings, screen frames and assembly checks handled through controlled production steps.",
+      "Trommels are engineered for robust and efficient separation in Municipal Solid Waste (MSW) processing plants. Manufactured through controlled fabrication processes, they feature precision-built rings, durable screen frames, and thoroughly verified assemblies to ensure reliable performance and long service life in demanding waste management applications.",
     image: trommelImg,
     features: [
       "Fabricated rings and screen frames",
@@ -62,7 +62,7 @@ const products: Product[] = [
     subtitle: "Material handling systems for plant transfer lines",
     tagline: "Transfer Equipment",
     description:
-      "Conveyors support reliable movement of materials across processing lines, with fabricated structures and fit-up handled to suit the plant layout and throughput requirement.",
+      "Conveyors are designed to provide reliable and efficient material transfer across waste processing and industrial plant operations. Built with robust fabricated structures and precision fit-up, they are configured to match plant layouts, optimize process flow, and ensure dependable performance across varying throughput requirements.",
     image: conveyorsImg,
     features: [
       "Heavy-duty conveyor fabrication",
@@ -79,7 +79,7 @@ const products: Product[] = [
     subtitle: "Separation equipment for mixed waste processing",
     tagline: "Separation Systems",
     description:
-      "Disc screen separators are engineered for dependable sorting performance, helping separate mixed waste streams through durable mechanical assemblies.",
+      "Disc Screen Separators are designed for efficient and reliable separation of mixed waste streams in material recovery and waste processing facilities. Engineered with durable mechanical assemblies and precision fabrication, they ensure consistent sorting performance, improved throughput, and dependable operation in demanding processing environments.",
     image: discSeparatorImg,
     features: [
       "Separator frame fabrication",
@@ -96,7 +96,7 @@ const products: Product[] = [
     subtitle: "Air-based separation for light and heavy fractions",
     tagline: "Air Separation",
     description:
-      "Air density separator systems help divide light and heavy fractions in waste streams, using controlled airflow and rugged fabricated structures for industrial operation.",
+      "Air Density Separators are designed to efficiently separate light and heavy materials from mixed waste streams using controlled airflow technology. Built with rugged fabricated structures and precision-engineered components, they deliver reliable performance, improved material recovery, and consistent operation in industrial waste processing and recycling plants.",
     image: airDensityImg,
     features: [
       "Airflow-based separation support",
@@ -113,7 +113,7 @@ const products: Product[] = [
     subtitle: "Magnetic separation systems for ferrous recovery",
     tagline: "Magnetic Separation",
     description:
-      "Over band magnetic separator assemblies are used to recover ferrous material from bulk waste streams with dependable magnet mounting and supporting structure.",
+      "Over Band Magnetic Separators are engineered to efficiently recover ferrous materials from bulk waste streams in recycling and waste processing plants. Designed with durable magnet support structures and precision alignment, they provide reliable continuous operation, improve material recovery, and enhance overall process efficiency.",
     image: magneticImg,
     features: [
       "Magnet support structure",
@@ -130,7 +130,7 @@ const products: Product[] = [
     subtitle: "Dust and particulate collection for process systems",
     tagline: "Collection Systems",
     description:
-      "Cyclone collectors are designed to separate entrained material from air streams, supporting cleaner plant operation and improved downstream process performance.",
+      "Cyclone Collectors are designed to efficiently separate dust and particulate matter from industrial air streams, ensuring cleaner plant operations and enhanced downstream process performance. Built with robust fabricated shells and duct systems, they provide reliable dust collection, improved air quality, and dependable operation in demanding industrial environments.",
     image: cycloneImg,
     features: [
       "Cyclone shell and duct fabrication",

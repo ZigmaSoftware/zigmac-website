@@ -4,16 +4,16 @@ import { Quote } from "lucide-react";
 import ShaderGlobe from "@/components/home/ShaderGlobe";
 
 const introText =
-  "We partner with Urban Local Bodies and waste generators to address one of urban India's most persistent challenges - organic wet waste. Through scientifically managed Black Soldier Fly processing, we divert waste from landfills and convert it into larvae, organic manure, and frass, creating measurable environmental value at every stage of the process.";
+  "Built on years of hands-on landfill mining and legacy waste remediation experience, we now channel that field expertise into designing and manufacturing the machinery that runs modern waste processing plants. We partner with Urban Local Bodies, cement producers and industrial plant operators, supplying trommels, conveyors, separators, shredders and complete turnkey lines - engineered with the same rigour we once applied to clearing landfills.";
 
 const ITEMS = [
   {
     label: "Our Vision",
-    text: "To lead global circular ecosystem transformation by setting the benchmark for a zero-waste future.",
+    text: "To lead the shift toward mechanised, technology-driven waste management - becoming the trusted machinery partner for waste processing plants worldwide, built on our legacy as a landfill mining pioneer.",
   },
   {
     label: "Our Mission",
-    text: "Deliver technology-driven waste management with integrity and with inbuilt Safety, Health and Environmental Standards.",
+    text: "Translate our on-ground landfill mining and waste management expertise into reliable, turnkey machinery - designed, fabricated and commissioned with integrity and with inbuilt Safety, Health and Environmental Standards.",
   },
 ] as const;
 
@@ -62,7 +62,7 @@ const Vision = () => {
             data-fly-target="vision"
             className="mt-2 text-3xl font-bold leading-tight text-foreground md:text-4xl"
           >
-            Driving Sustainable <span className="text-primary">Change</span>
+            From Landfill Mining to <span className="text-primary">Machinery Manufacturing</span>
           </h2>
 
           <p
@@ -97,10 +97,10 @@ const Vision = () => {
         </div>
 
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="w-full max-w-md space-y-16 md:space-y-20">
+          <div className="w-full text-justify space-y-16 md:space-y-20">
             {ITEMS.map((item) => (
               <div key={item.label}>
-                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground md:text-sm">
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground md:text-sm" >
                   {item.label}
                 </p>
 

@@ -67,10 +67,11 @@ const PartnersSection = () => {
         <h2 className="mt-3 text-2xl font-bold text-foreground md:text-4xl">
           Partnerships with <span className="text-primary">Cement Producers</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground md:text-base">
-          We convert legacy waste into high-calorific RDF for co-processing in cement kilns,
-          reducing landfill burden and fossil fuel dependency while advancing measurable
-          decarbonization outcomes.
+        <p className="mx-auto mt-4 max-w-[80.1ch] text-sm text-muted-foreground md:text-base">
+          Beyond RDF supply, we design and supply the machinery - conveyors, trommels, disc
+          screen separators, magnetic separators and shredders - that helps cement producers
+          pre-process alternate fuel on-site, backed by turnkey design, erection, installation
+          and commissioning support.
         </p>
       </div>
 

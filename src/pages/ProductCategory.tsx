@@ -68,9 +68,8 @@ const ProductCategory = () => {
                       index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
                     }`}
                   >
-                    <Link
-                      to={`/${category.slug}/${product.slug}`}
-                      className={`relative block ${index % 2 === 1 ? "lg:col-start-2" : ""}`}
+                    <div
+                      className={`relative ${index % 2 === 1 ? "lg:col-start-2" : ""}`}
                     >
                       <div className="relative overflow-hidden rounded-xl bg-black">
                         <img
@@ -81,7 +80,7 @@ const ProductCategory = () => {
                           decoding="async"
                         />
                       </div>
-                    </Link>
+                    </div>
 
                     <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
                       <span className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.3em] text-muted-foreground">
@@ -89,9 +88,7 @@ const ProductCategory = () => {
                         {product.tagline}
                       </span>
                       <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                        <Link to={`/${category.slug}/${product.slug}`} className="hover:text-primary transition-colors">
-                          {product.name}
-                        </Link>
+                        {product.name}
                       </h2>
                       <p className="mt-2 text-base lg:text-lg font-medium italic text-foreground/80 leading-relaxed">
                         {product.subtitle}
@@ -134,9 +131,6 @@ const ProductCategory = () => {
                             Enquire Now
                             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </Link>
-                        </Button>
-                        <Button asChild variant="outline">
-                          <Link to={`/${category.slug}/${product.slug}`}>View Full Details</Link>
                         </Button>
                       </div>
                     </div>

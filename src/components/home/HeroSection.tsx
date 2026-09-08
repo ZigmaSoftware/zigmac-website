@@ -11,27 +11,27 @@ import cycloneImg from "@/assets/products/cy2.webp";
 const slides = [
     {
       image: trommelImg,
-      title: "Trommels built for dependable waste separation.",
+      title: "Engineering and manufacturing machinery that powers modern waste processing plants.",
     },
     {
       image: conveyorImg,
-      title: "Conveyors engineered for smooth plant material flow.",
+      title: "From landfill mining expertise to complete machinery solutions for plants.",
     },
     {
       image: discSeparatorImg,
-      title: "Disc screen separators for consistent recovery performance.",
+      title: "Turnkey machinery packages - design, fabrication, erection and commissioning.",
     },
     {
       image: airDensityImg,
-      title: "Air density separation systems for plant-scale sorting.",
+      title: "Built on heavy fabrication, precision engineering and rigorous quality checks.",
     },
     {
       image: magneticImg,
-      title: "Over band magnetic separation for ferrous recovery.",
+      title: "Powering MSW, RDF and AFR processing with dependable, plant-ready machinery.",
     },
     {
       image: cycloneImg,
-      title: "Cyclone collection systems for cleaner process air.",
+      title: "One partner for screening, separation, conveying and material recovery equipment.",
   },
 ];
 
@@ -103,7 +103,7 @@ const HeroSection = () => {
             <h1
               key={current}
               data-fly-target="hero"
-              className="text-3xl md:text-5xl font-semibold text-white leading-[1.42] md:leading-[1.25] opacity-0 translate-x-[-45px] animate-slideIn [text-shadow:0_4px_14px_rgba(0,0,0,0.85),0_14px_36px_rgba(0,0,0,0.65)]"
+              className="text-3xl md:text-[41px] font-semibold text-white leading-[1.42] md:leading-[1.25] opacity-0 translate-x-[-45px] animate-slideIn [text-shadow:0_4px_14px_rgba(0,0,0,0.85),0_14px_36px_rgba(0,0,0,0.65)]"
             >
               {slides[current].title}
             </h1>
