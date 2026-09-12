@@ -73,8 +73,8 @@ const metrics: ImpactMetric[] = [
     titleLines: [""],
     descLines: ["State of the art", "manufacturing facility"],
     countTarget: 0,
-    staticLabel: "00,000",
-    countSuffix: " Sq.Ft",
+    staticLabel: "21,000",
+    countSuffix: "+ Sq.Ft",
   },
   {
     id: "gear-cutting",
@@ -87,7 +87,7 @@ const metrics: ImpactMetric[] = [
     titleLines: [""],
     descLines: ["Machinery processing", "capacity delivered"],
     countTarget: 30000,
-    countSuffix: " Tons/day ",
+    countSuffix: "+ Tons/day ",
   },
   {
     id: "waterjet-cutting",
