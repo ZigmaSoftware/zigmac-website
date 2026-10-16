@@ -29,18 +29,14 @@ const Footer = () => {
 
               <div className="flex gap-3">
                 <a
-                  href="https://www.facebook.com/share/18kiMiyZRp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   className="w-10 h-10 hover:bg-[#1877F2] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                   aria-label="Follow us on Facebook"
                 >
                   <Facebook className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://x.com/zigfly_official"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   className="w-10 h-10 hover:bg-[#000000] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                   aria-label="Follow us on Twitter"
                 >
@@ -49,27 +45,21 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/zigfly/posts/?feedView=all"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   className="w-10 h-10 hover:bg-[#0A66C2] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                   aria-label="Follow us on LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://www.instagram.com/zigfly_official/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   className="w-10 h-10 hover:bg-[#E1306C] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                   aria-label="Follow us on Instagram"
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://www.youtube.com/@zigfly_official"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   className="w-10 h-10 hover:bg-[#FF0000] hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                   aria-label="Follow us on YouTube"
                 >
